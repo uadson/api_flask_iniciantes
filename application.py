@@ -52,6 +52,12 @@ def get_bus(index):
 	bus = buses[index]
 	return jsonify(bus)
 
+# Definindo uma rota que fará inclusão de dados
+@app.route('buses/', methods=['POST'])
+def add_bus():
+	bus = request.get_json()
+	buses.append(bus)
+	return bus
 
 if __name__ == '__main__':
 	app.run(debug=True)
