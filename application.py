@@ -45,7 +45,13 @@ buses = [
 @app.route('/buses')
 def get_buses():
 	return jsonify(buses)
-	
+
+# Definindo uma rota que recupere o dados de apenas um ônibus de acordo com o que for informado
+@app.route('/buses/<int:index>')
+def get_bus(index):
+	bus = buses[index]
+	return jsonify(bus)
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
